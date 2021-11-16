@@ -82,7 +82,8 @@ public class StaticEnemy : MonoBehaviour
         if (lifePoints <= 0)
         {
             //play o set algun boolean o trigger cuando el enemigo muera
-            myAnimator.Play("EnemyExposion");
+            //myAnimator.Play("EnemyExposion");
+            myAnimator.SetBool("Alive", false);
             StartCoroutine("Die");
         }
     }

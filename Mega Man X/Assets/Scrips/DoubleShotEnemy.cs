@@ -42,11 +42,16 @@ public class DoubleShotEnemy : MonoBehaviour
     {
         if (isPlayerInRange)
         {
+            myAnimator.SetBool("IsShooting", true);
             Debug.Log("pum!");
             GameObject bullet1 = Instantiate(bullet, point1.position, transform.rotation);
             bullet1.GetComponent<Rigidbody2D>().velocity = new Vector2(-10,5);
             GameObject bullet2 = Instantiate(bullet, point2.position, transform.rotation);
             bullet2.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 5);
+            
+        }
+        else{
+            myAnimator.SetBool("IsShooting", false);
         }
     }
 
@@ -83,7 +88,10 @@ public class DoubleShotEnemy : MonoBehaviour
     }
     IEnumerator Die()
     {
+        myAnimator.SetBool("IsShooting", false);
+        myAnimator.SetBool("Death", true);
         yield return new WaitForSeconds(0.5f);
+        
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
     }

@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        myAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         {
             //play o set algun boolean o trigger cuando el enemigo muera
             //myAnimator.Play("EnemyExposion");
+            myAnimator.SetBool("Alive", false);
             StartCoroutine("Die");
         }
     }
@@ -68,6 +70,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Die()
     {
+        
         yield return new WaitForSeconds(0.5f);
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
