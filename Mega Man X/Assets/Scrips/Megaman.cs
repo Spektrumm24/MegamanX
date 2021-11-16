@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Megaman : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class Megaman : MonoBehaviour
     [SerializeField] int extraJumpsValue;
     [SerializeField] GameObject vfxDeath;
     [SerializeField] AudioClip sfxDeath;
+    [SerializeField] AudioClip sfxFire;
+    [SerializeField] AudioClip sfxJump;
+    [SerializeField] AudioClip sfxDash;
 
     private int extraJumps;
     public GameObject[] bullet;
@@ -32,7 +36,6 @@ public class Megaman : MonoBehaviour
     float inTime = 0f;
     float dir = 1f;
     bool pause = false;
-    
 
 
     // Start is called before the first frame update
@@ -55,7 +58,7 @@ public class Megaman : MonoBehaviour
             Falling();
             Fire();
             Dash();
-        } 
+        }
     }
 
     IEnumerator ShowTime()
@@ -77,7 +80,7 @@ public class Megaman : MonoBehaviour
             Bullet myBullet = obj.GetComponent<Bullet>();
             myBullet.Shoot(dir, moveSpeed * 2);
             if (!shooting) { shooting = true; }
-            
+            AudioSource.PlayClipAtPoint(sfxFire, Camera.main.transform.position);
         }
         if (shooting)
         {
@@ -143,6 +146,7 @@ public class Megaman : MonoBehaviour
 
             lastGroundedTime = 0;
             extraJumps--;
+            AudioSource.PlayClipAtPoint(sfxJump, Camera.main.transform.position);
         }
         
     }
@@ -163,7 +167,7 @@ public class Megaman : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C) && isGrounded())
         {
             inTime = Time.time;
-
+            AudioSource.PlayClipAtPoint(sfxDash, Camera.main.transform.position);
         }
         if (Input.GetKey(KeyCode.C) && isGrounded())
         {
@@ -215,5 +219,8 @@ public class Megaman : MonoBehaviour
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Instantiate(vfxDeath, transform.position, transform.rotation);
         Destroy(this.gameObject);
+        SceneManager.LoadScene(1);
     }
+
 }
+

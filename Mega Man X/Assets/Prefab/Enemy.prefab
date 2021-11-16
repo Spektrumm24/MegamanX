@@ -121,6 +121,7 @@ MonoBehaviour:
   range: 12
   player: {fileID: 9139432352009213665, guid: 94fc78a3b1d4ffb4ab282a72ab861ca5, type: 3}
   lifePoints: 2
+  sfxDeath: {fileID: 8300000, guid: 1fd64ac88406e544cb27d91c2fec0b7e, type: 3}
   aiPath: {fileID: 5090952805408153157}
 --- !u!114 &5090952805408153156
 MonoBehaviour:

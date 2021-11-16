@@ -135,6 +135,7 @@ MonoBehaviour:
   bullet: {fileID: 1562074560902838367, guid: a76f2097c90e75b4ea34904d074efda4, type: 3}
   point: {fileID: 1492209344248474211}
   lifePoints: 3
+  sfxDeath: {fileID: 8300000, guid: 1fd64ac88406e544cb27d91c2fec0b7e, type: 3}
 --- !u!58 &1492209344520846556
 CircleCollider2D:
   m_ObjectHideFlags: 0

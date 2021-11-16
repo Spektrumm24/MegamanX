@@ -144,6 +144,7 @@ MonoBehaviour:
   point1: {fileID: 6576091580817243707}
   point2: {fileID: 6576091579691861016}
   lifePoints: 2
+  sfxDeath: {fileID: 8300000, guid: 1fd64ac88406e544cb27d91c2fec0b7e, type: 3}
 --- !u!95 &6576091579427242462
 Animator:
   serializedVersion: 3

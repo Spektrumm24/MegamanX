@@ -177,8 +177,10 @@ MonoBehaviour:
   jumpForce: 13
   dashTime: 0.4
   extraJumpsValue: 1
-  vfxDeath: {fileID: 6535542400201222259, guid: b797999554d3eb0479204be0a50a7dc9, type: 3}
+  vfxDeath: {fileID: 3053051985622376464, guid: b797999554d3eb0479204be0a50a7dc9, type: 3}
   sfxDeath: {fileID: 8300000, guid: d20dac0dc202eb548bb49ca5f5f98336, type: 3}
+  sfxFire: {fileID: 8300000, guid: dbcd84d6908210b47b645300f703f54f, type: 3}
+  sfxJump: {fileID: 8300000, guid: ff161f2a59af61c4482f86d692d050a5, type: 3}
   bullet:
   - {fileID: 8119509436999390020, guid: 90fe4b31fa5080c499e687326234f255, type: 3}
   shooting: 0

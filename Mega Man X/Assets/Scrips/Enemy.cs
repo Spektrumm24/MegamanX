@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float range;
     [SerializeField] GameObject player;
     [SerializeField] int lifePoints;
+    [SerializeField] AudioClip sfxDeath;
     Animator myAnimator;
     public AIPath aiPath;
     void Start()
@@ -68,6 +69,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.5f);
+        AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
     }
 

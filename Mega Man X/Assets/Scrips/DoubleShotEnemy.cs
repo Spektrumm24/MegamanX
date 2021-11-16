@@ -10,6 +10,7 @@ public class DoubleShotEnemy : MonoBehaviour
     [SerializeField] Transform point1;
     [SerializeField] Transform point2;
     [SerializeField] int lifePoints;
+    [SerializeField] AudioClip sfxDeath;
     Animator myAnimator;
     bool isPlayerInRange;
     // Start is called before the first frame update
@@ -83,6 +84,7 @@ public class DoubleShotEnemy : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.5f);
+        AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
     }
 }

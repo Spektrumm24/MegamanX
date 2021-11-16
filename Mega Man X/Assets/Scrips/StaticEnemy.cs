@@ -9,6 +9,7 @@ public class StaticEnemy : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform point;
     [SerializeField] int lifePoints;
+    [SerializeField] AudioClip sfxDeath;
     Animator myAnimator;
 
     bool isPlayerRight;
@@ -88,6 +89,7 @@ public class StaticEnemy : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.5f);
+        AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
     }
 }
