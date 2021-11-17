@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Retry : MonoBehaviour
 {
+    [SerializeField] AudioClip sfxClick;
     public void LoadScene (string escena)
     {
         SceneManager.LoadScene(escena);
+    }
+    public void Musica(AudioClip audio)
+    {
+        AudioSource.PlayClipAtPoint(audio, Camera.main.transform.position);
     }
 }
