@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
+        UIManager.instance.killEnemy();
     }
 
 }

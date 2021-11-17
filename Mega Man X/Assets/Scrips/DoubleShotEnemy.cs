@@ -94,5 +94,6 @@ public class DoubleShotEnemy : MonoBehaviour
         
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
+        UIManager.instance.killEnemy();
     }
 }
