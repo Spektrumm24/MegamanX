@@ -22,7 +22,7 @@ public class DoubleShotEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         DetectPlayer();
         EnemyDies();
@@ -82,7 +82,8 @@ public class DoubleShotEnemy : MonoBehaviour
         if (lifePoints <= 0)
         {
             //play o set algun boolean o trigger cuando el enemigo muera
-            myAnimator.Play("EnemyExposion");
+            //myAnimator.Play("EnemyExposion");
+            //myAnimator.SetBool("Alive", false);
             StartCoroutine("Die");
         }
     }
@@ -90,7 +91,7 @@ public class DoubleShotEnemy : MonoBehaviour
     {
         myAnimator.SetBool("IsShooting", false);
         myAnimator.SetBool("Death", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);

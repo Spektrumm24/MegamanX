@@ -21,7 +21,7 @@ public class StaticEnemy : MonoBehaviour
         StartCoroutine("Time");
         myAnimator = GetComponent<Animator>();
     }
-    void Update()
+    void FixedUpdate()
     {
         DetectPlayer();
         EnemyDies();
@@ -89,7 +89,7 @@ public class StaticEnemy : MonoBehaviour
     }
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
         UIManager.instance.killEnemy();

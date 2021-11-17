@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         myAnimator = GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Flip();
         DetectPlayer();
@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(transform.position, range, LayerMask.GetMask("Player")) != null)
         {
-            Debug.Log("Persigalo!");
             aiPath.canMove = true;
         }
         else
@@ -71,7 +70,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Die()
     {
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         AudioSource.PlayClipAtPoint(sfxDeath, Camera.main.transform.position);
         Destroy(this.gameObject);
         UIManager.instance.killEnemy();
